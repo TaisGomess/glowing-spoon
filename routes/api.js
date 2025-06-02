@@ -4,6 +4,9 @@ import TodoApiController from '../app/Controllers/TodoApiController.js';
 
 export default (function () {
 
+    const ColaboradoresApiController = require('../app/Controllers/ColaboradoresApiController');
+
+
     const router = Router();
 
     router.get('/todos', TodoApiController.list);
@@ -15,6 +18,14 @@ export default (function () {
     router.put('/todos/:id', TodoApiController.update);
 
     router.delete('/todos/:id', TodoApiController.delete);
+
+    // Rotas para colaboradores novas
+    router.get('/colaboradores', ColaboradoresApiController.list);
+    
+    router.get('/colaboradores/:id', ColaboradoresApiController.get);
+    
+    router.post('/colaboradores', ColaboradoresApiController.insert);
+
 
     return router;
 
